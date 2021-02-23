@@ -65,11 +65,7 @@ def parallel_plot(plot_fn, data, grid_shape, total=None, preprocessing_fn=None, 
 
     full_figsize = (n_cols * grid_cell_size[0], n_rows * grid_cell_size[1])
 
-    print(full_figsize)
-
-    fig, axes = plt.subplots(nrows=n_rows, ncols=n_cols,
-                             figsize=full_figsize,
-                             squeeze=False)
+    fig, axes = plt.subplots(nrows=n_rows, ncols=n_cols, figsize=full_figsize, squeeze=False)
 
     if col_labels is not None:
         for label, ax in zip(col_labels, axes[0]):
