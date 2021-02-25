@@ -89,7 +89,7 @@ def parallel_plot(plot_fn, data, grid_shape, total=None, preprocessing_fn=None, 
 
         iterator = pool.imap_unordered(worker_func, zip(range(total), data))
         if show_progress:
-            from tqdm import tqdm
+            from tqdm.auto import tqdm
             iterator = tqdm(iterator, total=total)
 
         for index, path in iterator:
