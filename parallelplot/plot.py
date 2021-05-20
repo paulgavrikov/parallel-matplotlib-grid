@@ -27,12 +27,12 @@ def _parallel_plot_worker(args, plot_fn, figsize, in_memory, preprocessing_fn=No
 
     if not in_memory:
         path = f"{CACHE_DIR}/{index}.temp.png"
-        plt.savefig(path, bbox_inches="tight", pad_inches=0, dpi=DPI)
+        plt.savefig(path, format='png', bbox_inches="tight", dpi=DPI)
         plt.close()
         return index, path
     else:
         buf = io.BytesIO()
-        fig.savefig(buf, format='png', dpi=DPI)
+        fig.savefig(buf, format='png',bbox_inches="tight", dpi=DPI)
         buf.seek(0)
         pil_img = deepcopy(Image.open(buf))
         buf.close()
@@ -118,6 +118,8 @@ def parallel_plot(plot_fn, data, grid_shape, total=None, preprocessing_fn=None, 
                 r = int(index / n_cols)
 
             axes[r, c].imshow(img)
+
+    plt.subplots_adjust(hspace=0, wspace=0)
 
     if not in_memory and cleanup:
         shutil.rmtree(CACHE_DIR)
