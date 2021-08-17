@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="parallelplot",
-    version="0.0.2",
+    version="0.0.3",
     author="Paul Gavrikov",
     author_email="paul.gavrikov@hs-offenburg.de",
     description="Parallel plotting of matplotlib subplots.",
@@ -22,5 +22,5 @@ setuptools.setup(
         'matplotlib',
         'pillow'
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.6'
 )
