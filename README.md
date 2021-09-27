@@ -6,9 +6,7 @@ This Python 3 module helps you speedup generation of subplots in pseudo-parallel
 
 ## How does it work?
 
-This library uses pythons `multiprocessing` module to plot each cell individually. If provided, each process will first evaluate a user-defined preprocessing function. Afterwards, every process will call a second user-defined plotting function providing matplotlib axes to plot on. As of now, all created plots then stored as images in a temporary directory on disk and then retrieved and assembled by the main thread into a subplot without any decoration. 
-
-I am planning on adding support for in-memory plots or perhaps even passing the `matplotlib` figs to the main thread if there is sufficient interest in this. 
+This library uses pythons `multiprocessing` module to plot each cell individually. If provided, each process will first evaluate a user-defined preprocessing function. Afterwards, every process will call a second user-defined plotting function providing matplotlib axes to plot on. All created plots then stored as images and then retrieved and assembled by the main thread into a subplot without any decoration. 
 
 ## How do I install this module?
 
