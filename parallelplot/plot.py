@@ -6,7 +6,6 @@ import functools
 from multiprocessing import get_context
 import io
 import numpy as np
-from copy import deepcopy
 from PIL import Image
 
 
@@ -36,10 +35,10 @@ def _parallel_plot_worker(args, plot_fn, fig_size, in_memory, preprocessing_fn=N
         buf = io.BytesIO()
         fig.savefig(buf, format="png", bbox_inches="tight", dpi=dpi, pad_inches=pad_inches)
         buf.seek(0)
-        pil_img = deepcopy(Image.open(buf))
+        img = np.array(Image.open(buf))
         buf.close()
         plt.close()
-        return index, pil_img
+        return index, img
 
 
 def _make_subplots(data, plot_fn, n_rows, n_cols, grid_cell_size, total=None, preprocessing_fn=None, switch_axis=False,
