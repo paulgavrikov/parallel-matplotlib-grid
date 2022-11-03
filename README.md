@@ -12,7 +12,7 @@ This library uses pythons `multiprocessing` module to plot each cell individuall
 
 This module is in a very early stage, so no `pypi` releases are currently provided. However, you can simply install this module from git:
 ```bash
-pip install git+https://github.com/paulgavrikov/parallel-matplolib-grid/
+pip install git+https://github.com/paulgavrikov/parallel-matplotlib-grid/
 ```
 
 ## How do I use it?
